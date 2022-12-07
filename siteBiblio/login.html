@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca IF</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="img/book-logo.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sono:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(63,9,121,1) 35%, rgba(0,164,198,1) 100%);
+            padding: 0px 10px;
+        }
+        /* Area de login */
+        .login-area {
+            width: 500px;
+            height: 500px;
+            background-color: white;
+            margin: 0 auto;
+            margin-top: 7%;
+            padding: 2%;
+            border-radius: 10px;
+            box-shadow: 0px 10px 40px rgba(65, 0, 73, 0.527);
+        }
+        .login-area h1 {
+            text-align: center;
+            font-family: 'Secular One';
+        }
+        .box-login {
+            margin: 10% 2%;
+        }
+        .box-login label {
+            width: 100%;
+            color: rgb(44, 44, 44);
+            font-size: 150%;
+            font-weight: 600;
+            font-family: 'Sono';
+        }
+        .box-login input {
+            background-color: #c4c4c4;
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid rgba(194, 194, 194, 0.384);
+            margin-top: 5px;
+            outline: none;
+            box-shadow: 0px 5px 10px rgba(31, 31, 31, 0.384);
+            color: white;
+        }
+        .btn-login {
+            background-color: rgb(57, 47, 92);
+            color: white;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid rgb(51, 42, 83);
+            margin-top: 25px;
+            padding: 5px;
+            text-transform: uppercase;
+            font-weight: 500;
+            box-shadow: 0px 5px 10px rgba(31, 31, 31, 0.582);
+            transition: 0.2s;
+        }
+        .btn-login:hover {
+            background-color: rgb(64, 52, 102);;
+            transform: scale(1.03);
+        }
+        .login-area a {
+            text-decoration: none;
+        }
+        .sucesso {
+            border: 1px solid green;
+        }
+        .error {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-area">
+        <h1>Faça seu login</h1>
+        <div class="box-login">
+            <label for="usuario">Usuário</label>
+            <input type="text" id="usuario">
+        </div>
+        <div class="box-login">
+            <label for="password">Senha</label>
+            <input type="password" id="password">
+        </div>
+        <button type="button" class="btn-login" id="btn-login">Entrar</button>
+        <a href="cadastro.html">Realizar cadastro</a>
+    </div>
+    <script>
+        const button = document.getElementById('btn-login')
+        const user = document.getElementById('usuario')
+        const senha = document.getElementById('password')
+
+        button.addEventListener('click', (event) => {
+        event.preventDefault()
+        if (user.value == '' || user.value.lenght <= 6) {
+            user.classList.remove('sucesso')
+            user.classList.add("error")
+        } else {
+            user.classList.remove('error')
+            if (senha.value == '' || senha.value <= 3) {
+                senha.classList.remove('sucesso')
+                senha.classList.add('error')
+            } else {
+                senha.classList.remove('error')
+
+            }
+        }
+        if (user.value == 'admin') {
+            user.classList.remove("error")
+            user.classList.add("sucesso")
+            if (senha.value == 'admin') {
+                senha.classList.remove("error")
+                senha.classList.add("sucesso")
+                location.href="index.html"
+            }
+        } else {
+            user.classList.remove("sucessoInput")
+            senha.classList.remove("sucessoInput")
+            user.classList.add("errorInput")
+            senha.classList.add("errorInput")
+        }
+    })
+    </script>
+</body>
+</html>
