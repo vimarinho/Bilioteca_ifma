@@ -110,7 +110,7 @@
 
         const user = document.getElementById('usuario')
         const senha = document.getElementById('password')
-        
+
         if (user.value == '' || user.value.lenght <= 6) {
             user.classList.remove('sucesso')
             user.classList.add("error")
@@ -130,7 +130,7 @@
             if (senha.value == 'admin') {
                 senha.classList.remove("error")
                 senha.classList.add("sucesso")
-                location.href="index.html"
+                location.href="home.html"
             }
         } else {
             user.classList.remove("sucessoInput")
